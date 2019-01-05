@@ -1,0 +1,10 @@
+{
+  "name": "oscars-2019-spa",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
