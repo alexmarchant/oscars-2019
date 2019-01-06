@@ -27,6 +27,6 @@ jobs:
 
       # tell kubernetes to pull latest image
       - run: |
-          kubectl --config="kubeconfig.yml" \
+          kubectl --kubeconfig="kubeconfig.yml" \
             patch deployment oscars-2019-spa -p \
             "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"`date +'%s'`\"}}}}}"
