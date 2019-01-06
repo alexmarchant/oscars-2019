@@ -2,9 +2,11 @@
   "name": "oscars-2019-spa",
   "private": true,
   "scripts": {
-    "start": "node server.js"
+    "static-file-server": "node static-file-server/forever.js",
+    "build": "echo '<h1>Oscars 2019</h1>' > dist/index.html"
   },
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "forever-monitor": "^1.7.1"
   }
 }

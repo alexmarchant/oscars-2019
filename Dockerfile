@@ -15,5 +15,8 @@ RUN npm install
 # Bundle app source
 COPY . .
 
+# Build js stuff
+RUN npm run build
+
 EXPOSE 3000
-CMD [ "npm", "start" ]
+CMD [ "npm", "run", "static-file-server" ]
