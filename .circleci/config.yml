@@ -12,7 +12,22 @@ jobs:
             docker build -t alexmarchant/oscars-2019-spa:latest .
             echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
             docker push alexmarchant/oscars-2019-spa:latest
-      - run:
-          name: Deploy app to Kubernetes
-          command: |
-            kubectl patch deployment oscars-2019-spa -p "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"`date +'%s'`\"}}}}}"
+version: 2
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      # login with credentials stored in the UI
+      - run: |
+         docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+      # build the application image
+      - run: docker build -t alexmarchant/oscars-2019-spa:latest .
+
+      # deploy the image
+      - run: docker push alexmarchant/oscars-2019-spa:latest
+
+      # send to kubernetes
+      # - run: |
+      #     kubectl patch deployment oscars-2019-spa -p "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"`date +'%s'`\"}}}}}"
