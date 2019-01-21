@@ -3,10 +3,28 @@
   "private": true,
   "scripts": {
     "static-file-server": "node static-file-server/forever.js",
-    "build": "echo '<h1>Oscars 2019</h1>' > dist/index.html"
+    "build": "webpack --config=config/webpack.production.js",
+    "dev": "webpack-dev-server --config=config/webpack.dev.js"
   },
   "dependencies": {
     "express": "^4.16.4",
     "forever-monitor": "^1.7.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.0",
+    "@babel/preset-react": "^7.0.0",
+    "autoprefixer": "^9.4.6",
+    "babel-loader": "^8.0.5",
+    "copy-webpack-plugin": "^4.6.0",
+    "css-loader": "^2.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "postcss-loader": "^3.0.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
   }
 }
