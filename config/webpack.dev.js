@@ -4,8 +4,9 @@ const path = require('path')
 const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
+
 module.exports = {
-  entry: './src/js/bundle.js',
+  entry: './src/index.js',
   output: {
     path: path.join(__dirname, '..', 'dist'),
     filename: 'bundle.js'
@@ -14,11 +15,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
+        test: /\.(js|jsx|mjs)$/,
+        // include: paths.appSrc,
+        loader: require.resolve('babel-loader'),
+        options: {
+
+          // This is a feature of `babel-loader` for webpack (not Babel itself).
+          // It enables caching results in ./node_modules/.cache/babel-loader/
+          // directory for faster rebuilds.
+          cacheDirectory: true,
+        },
       },
       {
         test: /\.css$/,
@@ -63,7 +69,7 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: './src/html/index.html',
+      template: './public/index.html',
       filename: './index.html'
     }),
     new CopyWebpackPlugin([

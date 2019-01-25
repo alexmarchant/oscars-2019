@@ -1,0 +1,21 @@
+.categoryHeader {
+  display: flex;
+  align-items: center;
+}
+
+.horizontalRule {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #D8D8D8;
+  content: "";
+}
+
+.categoryTitle {
+  padding: 30px 15px 30px 15px;
+  text-align: center;
+  font-family: ArialNarrow-Bold;
+  font-size: 16px;
+  background-color: #252B30;
+  color: #D8D8D8;
+  letter-spacing: 0;
+}
