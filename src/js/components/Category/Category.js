@@ -1,5 +1,5 @@
 import React from 'react';
-import Nominee from './Nominee/Nominee';
+import Nominee from '../Nominee/Nominee';
 import PropTypes from 'prop-types'
 import styles from './Category.css'
 
@@ -12,7 +12,8 @@ const category = (props) => {
       title === "Actor in a Leading Role" ||
       title === "Actress in a Leading Role" ||
       title === "Actor in a Supporting Role" ||
-      title === "Actress in a Supporting Role"
+      title === "Actress in a Supporting Role" ||
+      title === "Original Song"
     )
   }
 

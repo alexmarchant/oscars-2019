@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import Modal from '../../components/UI/Modal/Modal'
+import {connect} from 'react-redux'
+import { authActions } from '../../_store/_actions'
 
 class Auth extends Component {
 
@@ -6,61 +9,32 @@ class Auth extends Component {
     email: '',
     password: '',
     passwordConfirmation: '',
-    isSignUp: true
+    isSignUp: true,
   }
 
-  emailHandler = (event) => {
-    let email = event.target.value;
-    this.setState({
-      email: email
-    })
+  componentWillMount() {
+    this._isAuthenticated()
   }
 
-  passwordHandler = (event) => {
-    let password = event.target.value;
-    this.setState({
-      password: password
-    })
-  }
+  handleChange = (event) => {
+    const {name, value} = event.target
 
-  passwordConfirmationHandler = (event) => {
-    let passwordConfirmation = event.target.value;
     this.setState({
-      passwordConfirmation: passwordConfirmation
+      [name]: value
     })
   }
 
   onSubmitHandler = (event) => {
     event.preventDefault()
 
-    let fetchUrl = ''
-
-    if (this.state.isSignUp) {
-      fetchUrl = 'http://api.oscars.alexmarchant.com/users'
-    } else if (!this.state.isSignup) {
-      fetchUrl = 'http://api.oscars.alexmarchant.com/tokens'
-    }
-
-    let data = {
+    const authData = {
       email: this.state.email,
       password: this.state.password,
-      passwordConfirmation: this.state.passwordConfirmation
+      passwordConfirmation: this.state.passwordConfirmation,
+      isSignUp: this.state.isSignUp
     }
 
-    fetch(fetchUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then(res => res.json())
-      .then((data)=> this.setLocalStorageHandler(data))
-      .catch((data)=> console.error(data))
-  }
-
-  setLocalStorageHandler = (data) => {
-    localStorage.setItem('token', data.token)
+    this.props.onAuth(authData)
   }
 
   switchAuthModeHandler = () => {
@@ -68,32 +42,59 @@ class Auth extends Component {
 
     let isSignUp = this.state.isSignUp;
 
-    this.setState({
-      isSignUp: !isSignUp
+    this.setState( prevState => {
+      return {isSignUp: !prevState.isSignUp}
     })
+  }
+
+  _isAuthenticated = () => {
+    this.props.isAuthenticated()
   }
 
   render(){
 
-    let passwordConfirmationInput = ''
+    let passwordConfirmationInput = '';
 
     if (this.state.isSignUp) {
-      passwordConfirmationInput = <input type="password" onChange={this.passwordConfirmationHandler} value={this.state.passwordConfirmation}/>
+      passwordConfirmationInput = <input type="password" onChange={this.handleChange} value={this.state.passwordConfirmation} name="passwordConfirmation"/>
     }
-    
+
+    let error = null
+
+    if (this.props.error) {
+      error = <div>{this.props.error}</div>
+    }
+
     return(
       <div>
-        <form onSubmit={this.onSubmitHandler} >
-          <input type="email" onChange={this.emailHandler} value={this.state.email}/>
-          <input type="password" onChange={this.passwordHandler} value={this.state.password}/>
-          {passwordConfirmationInput}
-          <input type="submit" />
-        </form>
-
-        <button onClick={this.switchAuthModeHandler}>Switch to {this.state.isSignUp ? 'SIGN IN' : 'SIGN UP'}</button>
+        <Modal show={!this.props.token}>
+          {error}
+          <form onSubmit={this.onSubmitHandler} >
+            <input type="email" onChange={this.handleChange} value={this.state.email} name="email"/>
+            <input type="password" onChange={this.handleChange} value={this.state.password} name="password"/>
+            {passwordConfirmationInput}
+            <input type="submit" />
+          </form>
+          <button onClick={this.switchAuthModeHandler}>Switch to {this.state.isSignUp ? 'SIGN IN' : 'SIGN UP'}</button>
+        </Modal>
       </div>
     )
   }
 }
 
-export default Auth;
+const mapStateToProps = (state) => {
+  return {
+    error: state.authentication.error,
+    token: state.authentication.token
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onAuth: (authData)=> dispatch(authActions.auth(authData)),
+    isAuthenticated: ()=> dispatch(authActions.isAuthenticated())
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);

@@ -9,7 +9,8 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.join(__dirname, '..', 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
   },
   mode: 'development',
   module: {
@@ -64,7 +65,8 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, '..', 'dist'),
     hot: true,
-    port: 8080
+    port: 8080,
+    historyApiFallback: true
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

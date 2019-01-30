@@ -704,7 +704,7 @@ const nominees = [
           title: "Original Song",
           nominees: [
                {
-                    name: "\n\nShallow ",
+                    name: "Shallow",
                     image: "",
                     review: "https://www.nytimes.com/2018/10/03/movies/a-star-is-born-review-lady-gaga-bradley-cooper.html",
                     film: "A Star Is Born",
@@ -725,7 +725,7 @@ const nominees = [
                     winner: !1
                },
                {
-                    name: "The Place Where Lost Things Go ",
+                    name: "The Place Where Lost Things Go",
                     image: "",
                     review: "https://www.nytimes.com/2018/12/18/movies/mary-poppins-returns-review.html",
                     film: "Mary Poppins Returns",
