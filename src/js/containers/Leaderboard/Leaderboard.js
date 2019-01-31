@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 
 import User from '../../components/User/User'
-import { leaderboardActions } from '../../_store/_actions'
 
 import * as actions from '../../_store/_actions';
+import { usersActions } from '../../_store/_actions'
 import { winners, points } from '../../../data/winners'
 
 
@@ -73,13 +73,13 @@ class Leaderboard extends Component {
 
 const mapStateToProps = state => {
   return {
-    usersList: state.leaderboard.usersList
+    usersList: state.users.usersList
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchAllUsers: ()=> dispatch(leaderboardActions.fetchAllUsers()),
+    onFetchAllUsers: ()=> dispatch(usersActions.fetchAllUsers()),
   }
 }
 

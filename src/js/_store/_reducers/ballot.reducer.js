@@ -1,21 +1,19 @@
-import { constants } from '../_constants';
+import { ballotConstants } from '../_constants';
 import nomineesData from '../../../data/nominees'
 
 const initialState = {
   nomineesList: nomineesData,
   userSelections: {},
-  authenticated: false
 }
 
-export const reducer = (state = initialState, action ) => {
-  console.log('[reducer] action', action.type );
+export const ballot = (state = initialState, action ) => {
 
   const nomineesList = JSON.parse(JSON.stringify(state.nomineesList))
   const userSelections = JSON.parse(JSON.stringify(state.userSelections))
 
   switch(action.type) {
 
-    case constants.UPDATE_SELECTION_STATE:
+    case ballotConstants.UPDATE_SELECTION_STATE:
 
     userSelections[action.category] = action.selection
       return {
@@ -23,10 +21,9 @@ export const reducer = (state = initialState, action ) => {
         userSelections: userSelections
       };
 
-    case constants.HIGHLIGHT_SELECTION:
+    case ballotConstants.HIGHLIGHT_SELECTION:
       let categoryIndex = nomineesList.findIndex((category)=> { return (action.category === category["title"]) })
       nomineesList[categoryIndex].nominees.forEach((nominee)=> {nominee.selected = false})
-
 
       nomineesList.forEach((category)=> {
         category.nominees.forEach((nominee)=> {
@@ -41,12 +38,29 @@ export const reducer = (state = initialState, action ) => {
       nomineesList: nomineesList
     };
 
-    case constants.LOAD_USER_PICKS:
+    case ballotConstants.LOAD_USER_PICKS:
 
     return {
       ...state,
       userSelections: {...action.userSelections},
       nomineesList: nomineesList
+    };
+
+
+    case ballotConstants.FETCH_USERS_PICKS_START:
+    return {
+      ...state,
+    };
+    
+    case ballotConstants.FETCH_USERS_PICKS_SUCCESS:
+    return {
+      ...state,
+    };
+
+    case ballotConstants.FETCH_USERS_PICKS_FAILURE:
+    return {
+      ...state,
+      error: action.error
     };
 
     default:

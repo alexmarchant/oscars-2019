@@ -34,7 +34,7 @@ class Auth extends Component {
       isSignUp: this.state.isSignUp
     }
 
-    this.props.onAuth(authData)
+    this.props.initAuth(authData)
   }
 
   switchAuthModeHandler = () => {
@@ -56,7 +56,7 @@ class Auth extends Component {
     let passwordConfirmationInput = '';
 
     if (this.state.isSignUp) {
-      passwordConfirmationInput = <input type="password" onChange={this.handleChange} value={this.state.passwordConfirmation} name="passwordConfirmation"/>
+      passwordConfirmationInput = <input type="password" onChange={this.handleChange} value={this.state.passwordConfirmation} name="passwordConfirmation" />
     }
 
     let error = null
@@ -91,10 +91,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAuth: (authData)=> dispatch(authActions.auth(authData)),
+    initAuth: (authData)=> dispatch(authActions.initAuth(authData)),
     isAuthenticated: ()=> dispatch(authActions.isAuthenticated())
   }
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Auth);

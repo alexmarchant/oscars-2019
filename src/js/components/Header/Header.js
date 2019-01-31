@@ -7,8 +7,9 @@ const header = () => {
     <div>
       <h1>Oscar Ballot 2019</h1>
       <ul>
-        <li><Link to="/leaderboard">Leaderboard</Link></li>
         <li><Link to="/">Ballot</Link></li>
+        <li><Link to="/leaderboard">Leaderboard</Link></li>
+        <li><Link to="/Admin">Admin</Link></li>
       </ul>
     </div>
   )

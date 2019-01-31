@@ -11,7 +11,7 @@ const nominee = (props) => {
   let selectedIcon = <div>&#8203;</div>
   const classes = [styles.nominee]
 
-  if (props.isSelected) {
+  if (props.isSelected && !props.admin) {
     selectedIcon = <img className={styles.selectedNomineeIcon} src='../../../images/checked-symbol.png' alt="selected" />
     classes.push(styles.selectedNominee)
   }
@@ -34,19 +34,3 @@ const nominee = (props) => {
 }
 
 export default nominee;
-
-// return(
-//   <div>
-//     <label>
-//       <input
-//         type="radio"
-//         name={props.category}
-//         id={props.name}
-//         value={props.name}
-//       />
-//       {props.name}
-//       <p>{film}</p>
-//       <img src='../../../images/a-star-is-born.jpg' href={props.name}/>
-//     </label>
-//   </div>
-// )

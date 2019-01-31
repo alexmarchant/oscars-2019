@@ -26,6 +26,7 @@ const category = (props) => {
       isPerson={isPerson(props.title)}
       clicked={props.clicked}
       isSelected={nom.selected}
+      admin={props.admin}
       />
   })
 
@@ -41,13 +42,5 @@ const category = (props) => {
     </div>
   )
 };
-
-// category.propTypes = {
-//   name: PropTypes.string.isRequired,
-//   film: PropTypes.string.isRequired,
-//   test: PropTypes.string.isRequired
-// }
-//
-
 
 export default category

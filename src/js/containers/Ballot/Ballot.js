@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import Category from '../../components/Category/Category';
 import nomineesData from '../../../data/nominees';
 import { connect } from 'react-redux';
-import * as actions from '../../_store/_actions';
+import { usersActions, ballotActions } from '../../_store/_actions';
+
 
 
 class Ballot extends Component {
@@ -62,16 +63,16 @@ class Ballot extends Component {
 
 const mapStateToProps = state => {
   return {
-    nomineesList: state.reducer.nomineesList,
-    userSelections: state.reducer.userSelections,
+    nomineesList: state.ballot.nomineesList,
+    userSelections: state.ballot.userSelections,
     token: state.authentication.token
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onMakeSelection: (category, selection, userSelections)=> dispatch(actions.makeSelection(category, selection, userSelections)),
-    onFetchUserPicks: ()=> dispatch(actions.fetchUserPicks()),
+    onMakeSelection: (category, selection, userSelections)=> dispatch(ballotActions.makeSelection(category, selection, userSelections)),
+    onFetchUserPicks: ()=> dispatch(ballotActions.fetchUserPicks()),
   }
 }
 

@@ -1,17 +1,16 @@
-import { constants } from '../_constants'
 import axios from 'axios'
+import { authConstants } from '../_constants'
 
 
 export const authActions = {
-  auth,
+  initAuth,
   logout,
   isAuthenticated
 }
 
-
-function auth(authData) {
+function initAuth(authData) {
   return dispatch => {
-    dispatch(authStart(authData))
+    dispatch(authStart())
 
     let url = ''
 
@@ -33,25 +32,26 @@ function auth(authData) {
     })
   }
 
-  function authStart() { return { type: constants.AUTH_START }}
-  function authSuccess(authData) { return { type: constants.AUTH_SUCCESS, token: authData.token }}
-  function authFail(error) { return { type: constants.AUTH_FAIL, error: error }}
+  function authStart() { return { type: authConstants.AUTH_START }}
+  function authSuccess(authData) { return { type: authConstants.AUTH_SUCCESS, token: authData.token }}
+  function authFail(error) { return { type: authConstants.AUTH_FAIL, error: error }}
 }
 
 function logout() {
   return {
-    type: constants.AUTH_LOGOUT
+    type: authConstants.AUTH_LOGOUT
   }
 }
 
 function isAuthenticated() {
+
   let token = null
 
   if (localStorage.token) {
     token = localStorage.token
   }
   return {
-    type: constants.IS_AUTHENTICATED,
+    type: authConstants.IS_AUTHENTICATED,
     token: token
   }
 }

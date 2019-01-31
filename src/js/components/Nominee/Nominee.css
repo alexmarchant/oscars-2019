@@ -8,6 +8,10 @@
   position: relative;
 }
 
+.greenBackground {
+  background-color: green;
+}
+
 /* .nominee:hover {
   border: 5px solid #C5B318;
 } */

@@ -1,4 +1,4 @@
-import { constants } from '../_constants';
+import { authConstants } from '../_constants';
 import nomineesData from '../../../data/nominees'
 
 const initialState = {
@@ -11,17 +11,14 @@ export const authentication = (state = initialState, action ) => {
 
   switch(action.type) {
 
-    case constants.AUTH_START:
-
+    case authConstants.AUTH_START:
     return {
       ...state,
       error: null,
       loading: true
     };
 
-    case constants.AUTH_SUCCESS:
-    console.log(action);
-
+    case authConstants.AUTH_SUCCESS:
     return {
       ...state,
       token: action.token,
@@ -29,24 +26,20 @@ export const authentication = (state = initialState, action ) => {
       loading: false
     };
 
-    case constants.AUTH_FAIL:
-    console.log('[reducer] AUTH_FAIL');
-
+    case authConstants.AUTH_FAIL:
     return {
       ...state,
       error: action.error,
       loading: false
     };
 
-    case constants.IS_AUTHENTICATED:
-
+    case authConstants.IS_AUTHENTICATED:
     return {
       ...state,
       token: action.token
     };
 
-    case constants.AUTH_LOGOUT:
-
+    case authConstants.AUTH_LOGOUT:
     return {
       ...state,
       token: null
@@ -56,5 +49,3 @@ export const authentication = (state = initialState, action ) => {
       return state;
   }
 };
-
-// export authentication;
