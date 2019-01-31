@@ -1,47 +1,40 @@
 import axios from 'axios'
-import { constants } from '../_constants'
+import { adminConstants } from '../_constants'
+import { authHeader } from '../../_helpers/authHeader';
 
-export const adminActions = {
-  selectWinner
+function updateWinners(winners) {
+  return {
+    type: adminConstants.LOAD_WINNERS,
+    winners: winners
+  }
 }
 
 function selectWinner (category, selection, userSelections){
   return dispatch => {
     dispatch(saveWinner(category, selection, userSelections))
-    dispatch(updateWinnersState(category, selection))
-    dispatch(highlightwinner(category))
+    // dispatch(updateWinnersState(category, selection))
+    // dispatch(highlightwinner(category))
   }
 }
 
-const saveWinner = (category, selection, winners) => {
-  winners[category] = selection
-
-  let url = 'http://api.oscars.alexmarchant.com/winners'
-  let token = localStorage.token
-
+function saveWinner (category, winner, winners) {
   return dispatch => {
+    const data = { ...winners}
+    data[category] = winner
+    console.log(data);
+
+    const url = 'http://api.oscars.alexmarchant.com/winners'
     axios(url, {
-      method: "post",
-      headers: {'Authorization': `Bearer ${token}`},
-      data: JSON.stringify(userSelections)
+      method: 'POST',
+      headers: authHeader(),
+      data: JSON.stringify(data)
     })
-    .then(()=> console.log('success'))
-    .catch((data)=> console.error(data))
+    .then((res)=> console.log(res))
+    .catch((err)=> console.log(err))
   }
 }
 
-const highlightwinner = (category) => {
-
-  return {
-    type: constants.HIGHLIGHT_WINNER,
-    category: category
-  }
-}
-
-const updateWinnersState = (category, selection) => {
-  return {
-    type: constants.UPDATE_WINNER_STATE,
-    category: category,
-    selection: selection
-  }
+export const adminActions = {
+  selectWinner,
+  updateWinners
 }

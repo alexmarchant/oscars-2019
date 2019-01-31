@@ -5,7 +5,7 @@ import User from '../../components/User/User'
 
 import * as actions from '../../_store/_actions';
 import { usersActions } from '../../_store/_actions'
-import { winners, points } from '../../../data/winners'
+import { points } from '../../../data/winners'
 
 
 class Leaderboard extends Component {
@@ -37,6 +37,8 @@ class Leaderboard extends Component {
   }
 
   render() {
+
+    const winners = this.props.winners
 
     this.props.usersList.forEach((user)=> {
       user.scores = []
@@ -73,7 +75,8 @@ class Leaderboard extends Component {
 
 const mapStateToProps = state => {
   return {
-    usersList: state.users.usersList
+    usersList: state.users.usersList,
+    winners: state.admin.winners
   }
 }
 

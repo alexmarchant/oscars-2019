@@ -5,25 +5,59 @@ import Category from '../../components/Category/Category';
 import nomineesData from '../../../data/nominees';
 import { connect } from 'react-redux';
 import {adminActions} from '../../_store/_actions';
-import { webSocket} from '../../_helpers/webSocket'
-
 
 class Admin extends Component {
 
-  componentDidMount(){
-    if (this.props.token) {
-      console.log('token');
+
+  // componentDidMount(){
+  //
+  //   if (this.props.token) {
+  //     console.log('token');
+  //   }
+
+  //   const host = 'api.oscars.alexmarchant.com'
+  //   const conn = new WebSocket("ws://" + host + "/ws/winners");
+  //   setupListeners(conn)
+  //
+  //   function setupListeners(conn) {
+  //
+  //     conn.onclose = (event) => {
+  //       console.log('Connection lost')
+  //     }
+  //
+  //     conn.onmessage = (event) => {
+  //       const message = JSON.parse(event.data)
+  //       console.log('Message received', message)
+  //       switch (message.type) {
+  //         case 'winners':
+  //           document.getElementById('winners').innerHTML = JSON.stringify(message.winners, null, 2)
+  //           break
+  //         case 'error':
+  //           alert(message.error)
+  //           break
+  //       }
+  //     }
+  // }
+
+    componentDidMount() {
+      const host = 'api.oscars.alexmarchant.com'
+      const conn = new WebSocket("ws://" + host + "/ws/winners");
+      const that = this;
+
+      conn.onmessage = (event) => {
+        const message = JSON.parse(event.data);
+        that.messageHandler(message.winners);
+      };
     }
 
-    // console.log(webSocket);
+    messageHandler = (winners) => {
+      this.props.onUpdateWinners(winners)
+    }
 
-    // webSocket.setupListeners(webSocket.conn)
-  }
-
-  _onSelectWinner = (category, winner, event) => {
-    console.log(event.target);
-    console.log(`${winner} is the winner for ${category}`);
-    this.props.onSelectWinner(category, winner)
+  _onSelectWinner = (category, winner) => {
+    // console.log(event.target);
+    // console.log(`${winner} is the winner for ${category}`);
+    this.props.onSelectWinner(category, winner, this.props.winners)
   }
 
   renderCategories = () => {
@@ -54,13 +88,15 @@ class Admin extends Component {
 const mapStateToProps = state => {
   return {
     token: state.authentication.token,
-    nomineesList: state.ballot.nomineesList
+    nomineesList: state.ballot.nomineesList,
+    winners: state.admin.winners
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSelectWinner: (category, winner)=> dispatch(adminActions.selectWinner(category, winner)),
+    onSelectWinner: (category, winner, winners)=> dispatch(adminActions.selectWinner(category, winner, winners)),
+    onUpdateWinners: (winners)=> dispatch(adminActions.updateWinners(winners)),
   }
 }
 
