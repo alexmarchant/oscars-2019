@@ -14,11 +14,6 @@ class Leaderboard extends Component {
     this._onFetchAllUsers()
   }
 
-  componentDidUpdate(prevProps) {
-    // console.log('is this even updating');
-    // console.log(prevProps, this.props);
-  }
-
   _onFetchAllUsers = () => {
     this.props.onFetchAllUsers()
   }

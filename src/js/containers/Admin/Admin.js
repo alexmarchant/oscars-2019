@@ -7,57 +7,23 @@ import { connect } from 'react-redux';
 import {adminActions} from '../../_store/_actions';
 
 class Admin extends Component {
-
-
-  // componentDidMount(){
-  //
-  //   if (this.props.token) {
-  //     console.log('token');
-  //   }
-
+  // componentDidMount() {
   //   const host = 'api.oscars.alexmarchant.com'
   //   const conn = new WebSocket("ws://" + host + "/ws/winners");
-  //   setupListeners(conn)
+  //   const that = this;
   //
-  //   function setupListeners(conn) {
+  //   conn.onmessage = (event) => {
+  //     const message = JSON.parse(event.data);
+  //     that.messageHandler(message.winners);
+  //   };
+  // }
   //
-  //     conn.onclose = (event) => {
-  //       console.log('Connection lost')
-  //     }
-  //
-  //     conn.onmessage = (event) => {
-  //       const message = JSON.parse(event.data)
-  //       console.log('Message received', message)
-  //       switch (message.type) {
-  //         case 'winners':
-  //           document.getElementById('winners').innerHTML = JSON.stringify(message.winners, null, 2)
-  //           break
-  //         case 'error':
-  //           alert(message.error)
-  //           break
-  //       }
-  //     }
+  // messageHandler = (winners) => {
+  //   this.props.onUpdateWinners(winners)
   // }
 
-    componentDidMount() {
-      const host = 'api.oscars.alexmarchant.com'
-      const conn = new WebSocket("ws://" + host + "/ws/winners");
-      const that = this;
-
-      conn.onmessage = (event) => {
-        const message = JSON.parse(event.data);
-        that.messageHandler(message.winners);
-      };
-    }
-
-    messageHandler = (winners) => {
-      this.props.onUpdateWinners(winners)
-    }
-
   _onSelectWinner = (category, winner) => {
-    // console.log(event.target);
-    // console.log(`${winner} is the winner for ${category}`);
-    this.props.onSelectWinner(category, winner, this.props.winners)
+  this.props.onSelectWinner(category, winner, this.props.winners)
   }
 
   renderCategories = () => {
@@ -96,7 +62,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onSelectWinner: (category, winner, winners)=> dispatch(adminActions.selectWinner(category, winner, winners)),
-    onUpdateWinners: (winners)=> dispatch(adminActions.updateWinners(winners)),
+    // onUpdateWinners: (winners)=> dispatch(adminActions.updateWinners(winners)),
   }
 }
 
