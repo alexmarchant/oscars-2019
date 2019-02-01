@@ -1,5 +1,7 @@
 import axios from 'axios'
 import { ballotConstants } from '../_constants'
+import { authHeader } from '../../_helpers/authHeader';
+
 
 export const ballotActions = {
   makeSelection,
@@ -34,7 +36,7 @@ const saveSelection = (category, selection, userSelections) => {
     dispatch(saveSelectionStart())
     axios(url, {
       method: "post",
-      headers: {'Authorization': `Bearer ${token}`},
+      headers: authHeader(),
       data: JSON.stringify(userSelections)
     })
       .then(()=> {
@@ -75,21 +77,18 @@ function loadUserPicks(nomineesList, userSelections) {
 }
 
 function fetchUserPicks () {
+  console.log('fetch the picks');
   return (dispatch, getState) => {
     dispatch(fetchUserPicksStart())
 
     let fetchUrl = 'http://api.oscars.alexmarchant.com/users/current-user/picks';
-    let token = localStorage.token;
 
     axios(fetchUrl, {
       method: 'get',
-      headers: {'Authorization': `Bearer ${token}`,
-      }
+      headers: authHeader()
     })
       .then(
         res => {
-          // console.log(res);
-          // console.log(getState().ballot.nomineesList);
           dispatch(loadUserPicks(getState().ballot.nomineesList, res.data))
           dispatch(fetchUserPicksSuccess())
         })

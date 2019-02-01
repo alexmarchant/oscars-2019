@@ -6,14 +6,11 @@ import nomineesData from '../../../data/nominees';
 import { connect } from 'react-redux';
 import { usersActions, ballotActions } from '../../_store/_actions';
 
-
-
 class Ballot extends Component {
 
   componentDidMount(){
-    if (this.props.token) {
+    if (this.props.user) {
       console.log('[BALLOT IS MOUNTING AND PICKS ARE BEING FETCHED]');
-
       this._onFetchUserPicks()
     } else {
       console.log('[BALLOT IS MOUNTING BUT USER IS NOT AUTHENTICATED]');
@@ -21,9 +18,8 @@ class Ballot extends Component {
   }
 
   componentDidUpdate(prevProps){
-    if (prevProps.token !== this.props.token) {
+    if (prevProps.user !== this.props.user) {
       console.log('[BALLOT JUST UPDATED AND THERE IS A NEW TOKEN]');
-
       this._onFetchUserPicks()
     } else {
       console.log('[BALLOT JUST UPDATED BUT THE TOKEN DIDN\'T CHANGE]');
@@ -65,7 +61,7 @@ const mapStateToProps = state => {
   return {
     nomineesList: state.ballot.nomineesList,
     userSelections: state.ballot.userSelections,
-    token: state.authentication.token
+    user: state.authentication.user
   }
 }
 

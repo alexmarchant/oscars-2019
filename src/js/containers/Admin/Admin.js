@@ -7,20 +7,6 @@ import { connect } from 'react-redux';
 import {adminActions} from '../../_store/_actions';
 
 class Admin extends Component {
-  // componentDidMount() {
-  //   const host = 'api.oscars.alexmarchant.com'
-  //   const conn = new WebSocket("ws://" + host + "/ws/winners");
-  //   const that = this;
-  //
-  //   conn.onmessage = (event) => {
-  //     const message = JSON.parse(event.data);
-  //     that.messageHandler(message.winners);
-  //   };
-  // }
-  //
-  // messageHandler = (winners) => {
-  //   this.props.onUpdateWinners(winners)
-  // }
 
   _onSelectWinner = (category, winner) => {
   this.props.onSelectWinner(category, winner, this.props.winners)
@@ -62,7 +48,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onSelectWinner: (category, winner, winners)=> dispatch(adminActions.selectWinner(category, winner, winners)),
-    // onUpdateWinners: (winners)=> dispatch(adminActions.updateWinners(winners)),
   }
 }
 

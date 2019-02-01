@@ -2,7 +2,7 @@ import { authConstants } from '../_constants';
 import nomineesData from '../../../data/nominees'
 
 const initialState = {
-  token: null,
+  user: null,
   error: null,
   loading:false
 }
@@ -21,7 +21,7 @@ export const authentication = (state = initialState, action ) => {
     case authConstants.AUTH_SUCCESS:
     return {
       ...state,
-      token: action.token,
+      user: action.user,
       error: null,
       loading: false
     };
@@ -36,13 +36,13 @@ export const authentication = (state = initialState, action ) => {
     case authConstants.IS_AUTHENTICATED:
     return {
       ...state,
-      token: action.token
+      user: action.user
     };
 
     case authConstants.AUTH_LOGOUT:
     return {
       ...state,
-      token: null
+      user: null
     };
 
     default:

@@ -67,7 +67,7 @@ class Auth extends Component {
 
     return(
       <div>
-        <Modal show={!this.props.token}>
+        <Modal show={!this.props.user}>
           {error}
           <form onSubmit={this.onSubmitHandler} >
             <input type="email" onChange={this.handleChange} value={this.state.email} name="email"/>
@@ -85,7 +85,7 @@ class Auth extends Component {
 const mapStateToProps = (state) => {
   return {
     error: state.authentication.error,
-    token: state.authentication.token
+    user: state.authentication.user
   }
 }
 

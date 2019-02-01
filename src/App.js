@@ -6,6 +6,7 @@ import Ballot from './js/containers/Ballot/Ballot';
 import Leaderboard from './js/containers/Leaderboard/Leaderboard';
 import Auth from './js/containers/Auth/Auth';
 import Admin from './js/containers/Admin/Admin';
+import { PrivateRoute } from './js/components/PrivateRoute/PrivateRoute'
 import { Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import {adminActions} from './js/_store/_actions';
@@ -35,11 +36,17 @@ class App extends Component {
           <Header />
           <Auth />
           <Route path="/leaderboard" component={Leaderboard}/>
-          <Route path="/admin" component={Admin} />
+          <PrivateRoute exact path="/admin" admin={this.props.admin} component={Admin} />
           <Route path="/" exact component={Ballot} />
         </Layout>
       </div>
     )
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    admin: state.authentication.user.admin
   }
 }
 

@@ -20,12 +20,24 @@ function initAuth(authData) {
       url = 'http://api.oscars.alexmarchant.com/tokens'
     }
 
+    let authToken
+
     axios.post(url, authData)
-    .then(
-      res => {
-        localStorage.setItem('token', res.data.token)
-        dispatch(authSuccess(res.data))
+    .then(res => res.data.token)
+    .then( token => {
+      authToken = token
+      return axios({
+        method: 'get',
+        url: 'http://api.oscars.alexmarchant.com/users/current-user',
+        headers: {'Authorization': `Bearer ${token}`}
+        })
       })
+    .then( res => {
+      const user = res.data
+      user.token = authToken
+      localStorage.setItem('user', JSON.stringify(user))
+      dispatch(authSuccess(user))
+    })
     .catch(
       error => {
       dispatch(authFail(error.response.data.error))
@@ -33,11 +45,12 @@ function initAuth(authData) {
   }
 
   function authStart() { return { type: authConstants.AUTH_START }}
-  function authSuccess(authData) { return { type: authConstants.AUTH_SUCCESS, token: authData.token }}
+  function authSuccess(user) { return { type: authConstants.AUTH_SUCCESS, user: user }}
   function authFail(error) { return { type: authConstants.AUTH_FAIL, error: error }}
 }
 
 function logout() {
+  localStorage.removeItem('user')
   return {
     type: authConstants.AUTH_LOGOUT
   }
@@ -45,13 +58,13 @@ function logout() {
 
 function isAuthenticated() {
 
-  let token = null
+  let user = null
 
-  if (localStorage.token) {
-    token = localStorage.token
+  if (localStorage.user) {
+    user = localStorage.user
   }
   return {
     type: authConstants.IS_AUTHENTICATED,
-    token: token
+    user: user
   }
 }
