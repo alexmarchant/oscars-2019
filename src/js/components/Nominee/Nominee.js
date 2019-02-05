@@ -21,7 +21,7 @@ const nominee = (props) => {
   }
 
   if (props.winners && props.winners[props.category] && props.isSelected) {
-    nomIcon = <FontAwesomeIcon icon="times-circle" color="red" size="2x" />
+    nomIcon = <FontAwesomeIcon icon="times-circle" color="#C93535" size="2x" />
 
     borderClasses.push(styles.categoryComplete)
   }
