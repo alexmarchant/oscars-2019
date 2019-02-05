@@ -1,5 +1,5 @@
 .Header {
-  background: url('../../../images/mobile-header.jpg');
+  background: url('/images/mobile-header.jpg');
   background-size:cover;
   min-height: 254px;
   display: flex;
