@@ -1,3 +1,16 @@
+tr {
+  margin: 5px 0;
+}
+
 td {
-  background-color: #fff;
+  font-family: ArialNarrow;
+  font-weight: bold;
+  color: #777777;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #fff;
+}
+
+.rank {
+  color: #c4b22e;
 }

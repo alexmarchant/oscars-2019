@@ -1,4 +1,14 @@
+table {
+  border-collapse: collapse;
+}
+
+th {
+  font-family: ArialNarrow;
+  padding: 25px;
+  color: #b82724;
+}
+
 .Leaderboard {
   width: 100%;
-  background-color: lightgrey;
+  background-color: #d8d8d8;
 }
