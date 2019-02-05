@@ -1,3 +1,25 @@
 .Ballot {
-  padding: 0 17px 0 17px;
+  padding: 0 17px 100px 17px;
+}
+
+.completedButton {
+  display: inline-block;
+  background: #C93535;
+  padding: 15px 20px;
+  font-family: ArialNarrow;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.Complete {
+  background-color: green;
+}
+
+
+@media (min-width: 900px) {
+  .Ballot {
+    padding: 0 8% 100px 8%;
+  }
 }

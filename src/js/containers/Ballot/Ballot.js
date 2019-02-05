@@ -5,6 +5,7 @@ import Category from '../../components/Category/Category';
 import nomineesData from '../../../data/nominees';
 import { connect } from 'react-redux';
 import { usersActions, ballotActions } from '../../_store/_actions';
+
 import styles from './Ballot.css'
 
 class Ballot extends Component {
@@ -51,9 +52,17 @@ class Ballot extends Component {
   }
 
   render() {
-    let categoriesCompleted = ''
+    let categoriesCompleted
     if (this.props.userSelections) {
       categoriesCompleted = Object.keys(this.props.userSelections).length
+    }
+
+    let classes = [styles.completedButton]
+    let completedText = 'YOUR BALLOT IS INCOMPLETE'
+
+    if (categoriesCompleted >= 24) {
+      classes.push(styles.Complete)
+      completedText = 'YOUR BALLOT IS COMPLETE'
     }
 
 
@@ -61,7 +70,8 @@ class Ballot extends Component {
     return (
       <div className={styles.Ballot}>
         {this.renderCategories()}
-        <p>{categoriesCompleted} out of 24 categories complete.</p>
+        <div className={classes.join(' ')}>{completedText}</div>
+        <input type="checkbox" />
       </div>
     )
   }

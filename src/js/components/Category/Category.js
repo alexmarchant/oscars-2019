@@ -1,6 +1,7 @@
 import React from 'react';
 import Nominee from '../Nominee/Nominee';
-import PropTypes from 'prop-types'
+import { points } from '../../../data/winners'
+
 import styles from './Category.css'
 
 const category = (props) => {
@@ -32,14 +33,18 @@ const category = (props) => {
   })
 
   return (
-    <div>
+    <div className={styles.category}>
       <div className={styles.categoryHeader}>
         <div className={styles.horizontalRule}>&#8203;</div>
-        <p className={styles.categoryTitle}>{props.title.toUpperCase()}</p>
+          <div className={styles.categoryTitle}>
+            <p>{props.title.toUpperCase()}</p>
+            <p className={styles.categoryPoints}>{points[props.title]} points</p>
+          </div>
         <div className={styles.horizontalRule}>&#8203;</div>
       </div>
-
-      {nominees}
+      <div className={styles.nominees}>
+        {nominees}
+      </div>
     </div>
   )
 };

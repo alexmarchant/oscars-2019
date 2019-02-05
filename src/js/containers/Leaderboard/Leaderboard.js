@@ -65,11 +65,13 @@ class Leaderboard extends Component {
       <div>
         <table className={styles.Leaderboard}>
         <thead>
-         <th>RANK</th>
-         <th>EMAIL</th>
-         <th>CORRECT</th>
-         <th>SCORE</th>
-         <th>PAID</th>
+          <tr>
+           <th>RANK</th>
+           <th>EMAIL</th>
+           <th>CORRECT</th>
+           <th>SCORE</th>
+           <th>PAID</th>
+         </tr>
 
         </thead>
           <tbody>

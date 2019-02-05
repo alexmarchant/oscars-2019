@@ -19,3 +19,29 @@
   color: #D8D8D8;
   letter-spacing: 0;
 }
+
+.categoryPoints {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+@media (min-width: 900px) {
+
+  .category {
+    margin-top: -45px;
+  }
+  .category:first-child {
+    margin-top: auto;
+  }
+
+  .nominees {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .nominees::after {
+    content: "";
+    flex: 0 1 30%;
+  }
+}

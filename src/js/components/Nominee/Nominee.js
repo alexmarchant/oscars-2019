@@ -16,18 +16,18 @@ const nominee = (props) => {
 
 
   if (props.isSelected && !props.admin) {
-    nomIcon = <FontAwesomeIcon icon="check-circle" color="#C5B318" size="2x" />
+    nomIcon = <FontAwesomeIcon className={styles.nomIcon} icon="check-circle" color="#C5B318" size="2x" />
     borderClasses.push(styles.selectedNominee)
   }
 
   if (props.winners && props.winners[props.category] && props.isSelected) {
-    nomIcon = <FontAwesomeIcon icon="times-circle" color="#C93535" size="2x" />
+    nomIcon = <FontAwesomeIcon className={styles.nomIcon} icon="times-circle" color="#C93535" size="2x" />
 
     borderClasses.push(styles.categoryComplete)
   }
 
   if (props.winners && props.winners[props.category] === props.name) {
-    nomIcon = <FontAwesomeIcon icon="check-circle" color="green" size="2x" />
+    nomIcon = <FontAwesomeIcon className={styles.nomIcon} icon="check-circle" color="green" size="2x" />
 
     borderClasses.push(styles.winnerBorder)
   }
@@ -51,4 +51,4 @@ const nominee = (props) => {
 
 export default nominee;
 
-// nomIcon = <FontAwesomeIcon icon="check-circle" color="#659D32" size="2x" />
+// nomIcon = <FontAwesomeIcon className={styles.nomIcon} icon="check-circle" color="#659D32" size="2x" />
