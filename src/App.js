@@ -11,6 +11,15 @@ import { Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import {adminActions} from './js/_store/_actions';
 
+//
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faCheckCircle)
+library.add(faTimesCircle)
+///
+
 
 class App extends Component {
 
@@ -29,24 +38,23 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props.user);
 
     return (
-      <div>
-        <Layout>
-          <Header />
-          <Auth />
-          <Route path="/leaderboard" component={Leaderboard}/>
-          <PrivateRoute exact path="/admin" admin={this.props.admin} component={Admin} />
-          <Route path="/" exact component={Ballot} />
-        </Layout>
-      </div>
+      <Layout>
+        <Header />
+        <Auth />
+        <Route path="/leaderboard" component={Leaderboard}/>
+        <PrivateRoute exact path="/admin" user={this.props.user} component={Admin} />
+        <Route path="/" exact component={Ballot} />
+      </Layout>
     )
   }
 }
 
 const mapStateToProps = state => {
   return {
-    admin: state.authentication.user.admin
+    user: state.authentication.user
   }
 }
 
@@ -56,4 +64,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(App))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))

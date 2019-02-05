@@ -5,6 +5,7 @@ import Category from '../../components/Category/Category';
 import nomineesData from '../../../data/nominees';
 import { connect } from 'react-redux';
 import { usersActions, ballotActions } from '../../_store/_actions';
+import styles from './Ballot.css'
 
 class Ballot extends Component {
 
@@ -42,6 +43,7 @@ class Ballot extends Component {
           key={index}
           title={nom.title}
           nominees={nom.nominees}
+          winners={this.props.winners}
           clicked={this._onMakeSelection}
         />
       ))
@@ -49,9 +51,17 @@ class Ballot extends Component {
   }
 
   render() {
+    let categoriesCompleted = ''
+    if (this.props.userSelections) {
+      categoriesCompleted = Object.keys(this.props.userSelections).length
+    }
+
+
+
     return (
-      <div className={"ballot"}>
-          {this.renderCategories()}
+      <div className={styles.Ballot}>
+        {this.renderCategories()}
+        <p>{categoriesCompleted} out of 24 categories complete.</p>
       </div>
     )
   }
@@ -61,7 +71,8 @@ const mapStateToProps = state => {
   return {
     nomineesList: state.ballot.nomineesList,
     userSelections: state.ballot.userSelections,
-    user: state.authentication.user
+    user: state.authentication.user,
+    winners: state.admin.winners
   }
 }
 

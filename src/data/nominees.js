@@ -966,7 +966,6 @@ const nominees = [
                }
           ]
      }
-
 ]
 
 export default nominees;

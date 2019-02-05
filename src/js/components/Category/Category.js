@@ -27,6 +27,7 @@ const category = (props) => {
       clicked={props.clicked}
       isSelected={nom.selected}
       admin={props.admin}
+      winners={props.winners}
       />
   })
 

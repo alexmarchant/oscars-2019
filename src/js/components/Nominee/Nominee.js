@@ -1,6 +1,9 @@
 import React from 'react'
 import styles from './Nominee.css'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+
 const nominee = (props) => {
   let film = null;
 
@@ -8,17 +11,30 @@ const nominee = (props) => {
     film = <p className={styles.nomineeFilm}>{props.film}</p>;
   }
 
-  let selectedIcon = <div>&#8203;</div>
-  const classes = [styles.nominee]
+  let nomIcon = <div>&#8203;</div>
+  const borderClasses = [styles.Border]
+
 
   if (props.isSelected && !props.admin) {
-    selectedIcon = <img className={styles.selectedNomineeIcon} src='../../../images/checked-symbol.png' alt="selected" />
-    classes.push(styles.selectedNominee)
+    nomIcon = <FontAwesomeIcon icon="check-circle" color="#C5B318" size="2x" />
+    borderClasses.push(styles.selectedNominee)
+  }
+
+  if (props.winners && props.winners[props.category] && props.isSelected) {
+    nomIcon = <FontAwesomeIcon icon="times-circle" color="red" size="2x" />
+
+    borderClasses.push(styles.categoryComplete)
+  }
+
+  if (props.winners && props.winners[props.category] === props.name) {
+    nomIcon = <FontAwesomeIcon icon="check-circle" color="green" size="2x" />
+
+    borderClasses.push(styles.winnerBorder)
   }
 
   return(
-    <div className={classes.join(' ')} onClick={(event)=> props.clicked(props.category, props.name, event)}>
-      <div className={styles.yellowBorder}></div>
+    <div className={styles.nominee} onClick={(event)=> props.clicked(props.category, props.name, event)}>
+      <div className={borderClasses.join(' ')}></div>
         <img className={styles.nomineeImage} src='../../../images/a-star-is-born.jpg' alt={props.name}/>
         <div className={styles.nomineeTextContainer}>
           <div className={styles.nomineeText}>
@@ -27,10 +43,12 @@ const nominee = (props) => {
               {film}
             </div>
           </div>
-          {selectedIcon}
+          {nomIcon}
         </div>
     </div>
   )
 }
 
 export default nominee;
+
+// nomIcon = <FontAwesomeIcon icon="check-circle" color="#659D32" size="2x" />

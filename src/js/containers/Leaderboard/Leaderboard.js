@@ -7,6 +7,8 @@ import * as actions from '../../_store/_actions';
 import { usersActions } from '../../_store/_actions'
 import { points } from '../../../data/winners'
 
+import styles from './Leaderboard.css'
+
 
 class Leaderboard extends Component {
 
@@ -54,16 +56,27 @@ class Leaderboard extends Component {
 
       return <User
         key={index}
+        rank={index + 1}
         user={user}
         score={this.scoreCalculator(user.scores)}/>
     })
 
     return (
-      <table>
-        <tbody>
-          {allUsers}
-        </tbody>
-      </table>
+      <div>
+        <table className={styles.Leaderboard}>
+        <thead>
+         <th>RANK</th>
+         <th>EMAIL</th>
+         <th>CORRECT</th>
+         <th>SCORE</th>
+         <th>PAID</th>
+
+        </thead>
+          <tbody>
+            {allUsers}
+          </tbody>
+        </table>
+      </div>
     )
   }
 }

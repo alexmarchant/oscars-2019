@@ -7,10 +7,7 @@ import styles from './Layout.css';
 const layout = (props) => {
   return (
     <Aux>
-      <div>Header, Menu, etc.</div>
-      <main>
-        {props.children}
-      </main>
+      {props.children}
     </Aux>
   )
 }

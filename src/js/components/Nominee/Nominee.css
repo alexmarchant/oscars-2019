@@ -8,41 +8,30 @@
   position: relative;
 }
 
-.greenBackground {
-  background-color: green;
+.Border {
+  height: 88px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
 }
 
-/* .nominee:hover {
+.Border:hover {
   border: 5px solid #C5B318;
+}
+
+.Border.selectedNominee  {
+  border: 5px solid #C5B318;
+}
+
+/* .Border.categoryComplete {
+  border: 5px solid red;
+}
+
+.Border.winnerBorder {
+  border: 5px solid green;
 } */
-
-.yellowBorder {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 99;
-}
-.yellowBorder:hover {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border: 5px solid #C5B318;
-  z-index: 99;
-}
-
-.selectedNominee .yellowBorder {
-  border: 5px solid #C5B318;
-  z-index: 100;
-}
-
-.selectedNominee:hover {
-  border: none;
-  z-index: 100;
-}
 
 .nominee:last-child {
   margin-bottom: 0;

@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { store } from './js/_store'
 import rootReducer from './js/_store/_reducers'
 
+import 'normalize.css';
 import './index.css';
 import App from './App.js'
 

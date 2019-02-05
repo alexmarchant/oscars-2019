@@ -1,6 +1,5 @@
 main {
-  width: 375px;
+  max-width: 500px;
   margin: 0 auto;
-  padding: 17px;
   background-color: #252B30;
 }

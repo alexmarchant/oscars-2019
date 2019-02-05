@@ -30,7 +30,6 @@ class Admin extends Component {
   render() {
     return (
       <div>
-      <div id="winners"></div>
           {this.renderCategories()}
       </div>
     )

@@ -61,7 +61,7 @@ function isAuthenticated() {
   let user = null
 
   if (localStorage.user) {
-    user = localStorage.user
+    user = JSON.parse(localStorage.user)
   }
   return {
     type: authConstants.IS_AUTHENTICATED,

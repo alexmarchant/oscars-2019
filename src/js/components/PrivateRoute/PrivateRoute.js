@@ -1,10 +1,14 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-export const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route {...rest} render={props => (
-      props.admin
-      ? <Component {...props} />
-      : <Redirect to={{ pathname: '/', state: { from: props.location } }} />
-  )} />
-)
+export const PrivateRoute = ({ component: Component, ...rest }) => {
+
+  console.log(rest);
+  return (
+    <Route {...rest} render={ props => (
+        rest.user
+        ? <Component {...props} />
+        : <Redirect to={{ pathname: '/', state: { from: props.location } }} />
+    )} />
+  )
+}

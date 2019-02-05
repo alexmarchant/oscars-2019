@@ -1,7 +1,39 @@
+.Header {
+  background: url('../../../images/mobile-header.jpg');
+  background-size:cover;
+  min-height: 254px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 h1 {
   font-family: Arial-Black;
   font-size: 25px;
   color: #FFFFFF;
   letter-spacing: 0.58px;
   text-align: center;
+  margin: 0;
+  width: 160px;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+  width: 100%;
+  justify-content: space-around;
+  margin: 0;
+  padding: 10px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-family: ArialNarrow-Bold;
+  font-size: 16px;
+}
+
+ul li a:hover {
+  text-decoration: underline;
 }
