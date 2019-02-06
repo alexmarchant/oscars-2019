@@ -1,14 +1,29 @@
 table {
-  border-collapse: collapse;
+  width: 100%;
+  background-color: #d8d8d8;
 }
 
 th {
   font-family: ArialNarrow;
-  padding: 25px;
   color: #b82724;
+  padding: 10px;
 }
 
-.Leaderboard {
-  width: 100%;
-  background-color: #d8d8d8;
+.desktopOnly {
+  display: none;
+}
+
+
+@media (min-width: 900px) {
+  table {
+    border-collapse: collapse;
+  }
+
+  th {
+    padding: 25px;
+  }
+
+  .desktopOnly {
+    display: block;
+  }
 }

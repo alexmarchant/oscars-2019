@@ -7,9 +7,8 @@ const user = (props) => {
     <tr>
       <td className={styles.rank}>{props.rank}</td>
       <td>{props.user.email}</td>
-      <td>{props.user.correct}/24</td>
+      <td className={styles.desktopOnly}>{props.user.correct}/24</td>
       <td>{props.score}</td>
-      <td>$</td>
     </tr>
   )
 }

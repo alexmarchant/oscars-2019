@@ -1,16 +1,33 @@
+
+.desktopOnly {
+  display: none;
+}
+
 tr {
   margin: 5px 0;
 }
 
 td {
   font-family: ArialNarrow;
-  font-weight: bold;
   color: #777777;
-  padding: 20px;
   text-align: center;
   border-top: 1px solid #fff;
+  padding: 10px 0;
 }
 
-.rank {
-  color: #c4b22e;
+@media (min-width: 900px) {
+
+  td {
+    font-weight: bold;
+    padding: 20px;
+  }
+
+
+  .desktopOnly {
+    display: block;
+  }
+
+  .rank {
+    color: #c4b22e;
+  }
 }

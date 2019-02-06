@@ -68,9 +68,8 @@ class Leaderboard extends Component {
           <tr>
            <th>RANK</th>
            <th>EMAIL</th>
-           <th>CORRECT</th>
+           <th className={styles.desktopOnly}>CORRECT</th>
            <th>SCORE</th>
-           <th>PAID</th>
          </tr>
 
         </thead>
