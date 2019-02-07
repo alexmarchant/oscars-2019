@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
 import Category from '../../components/Category/Category';
+import BallotFooter from '../../components/BallotFooter/BallotFooter'
 import nomineesData from '../../../data/nominees';
 import { connect } from 'react-redux';
 import { usersActions, ballotActions } from '../../_store/_actions';
@@ -70,8 +71,7 @@ class Ballot extends Component {
     return (
       <div className={styles.Ballot}>
         {this.renderCategories()}
-        <div className={classes.join(' ')}>{completedText}</div>
-        <input type="checkbox" />
+        <BallotFooter userSelections={this.props.userSelections}/>
       </div>
     )
   }

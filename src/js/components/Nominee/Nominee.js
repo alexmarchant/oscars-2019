@@ -32,10 +32,19 @@ const nominee = (props) => {
     borderClasses.push(styles.winnerBorder)
   }
 
+  function slugify(text){
+    return text.toLowerCase().replace(/ /g,'_').replace(/[^\w-]+/g,'');
+  }
+
+  function buildPath(text){
+    let str = '../../../images/nominee_imgs/' + slugify(text) + '.jpg'
+    return str
+  }
+
   return(
     <div className={styles.nominee} onClick={(event)=> props.clicked(props.category, props.name, event)}>
       <div className={borderClasses.join(' ')}></div>
-        <img className={styles.nomineeImage} src='../../../images/a-star-is-born.jpg' alt={props.name}/>
+        <img className={styles.nomineeImage} src={buildPath(props.name)} alt={props.name}/>
         <div className={styles.nomineeTextContainer}>
           <div className={styles.nomineeText}>
             <div>

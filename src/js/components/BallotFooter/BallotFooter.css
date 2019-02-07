@@ -1,0 +1,50 @@
+.BallotFooter {
+  /* background-color: pink; */
+  margin: 0 auto;
+  width: 100%;
+  font-family: ArialNarrow;
+  font-weight: bold;
+  color:#ffffff;
+  padding: 20px;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.completeMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footerText {
+  width: 263px;
+}
+
+.footerIcon {
+  /* padding: 5px; */
+  padding-right: 15px;
+  box-sizing: content-box;
+}
+
+.footerTextSuccess {
+  width: 371px;
+}
+
+.payment {
+  padding-top: 25px;
+  padding-left: 5px;
+  display: flex;
+  align-items: center;
+
+}
+
+.payment img {
+  width: 30px;
+  padding-right: 15px;
+  box-sizing: content-box;
+}
+
+.venmoHandle {
+  padding-left: 5px;
+  color: #C93535;
+}
