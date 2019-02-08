@@ -14,10 +14,12 @@ import {adminActions} from './js/_store/_actions';
 //
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCheckCircle, faTimesCircle, faEnvelope, faUnlockAlt} from '@fortawesome/free-solid-svg-icons'
 
 library.add(faCheckCircle)
 library.add(faTimesCircle)
+library.add(faEnvelope)
+library.add(faUnlockAlt)
 ///
 
 

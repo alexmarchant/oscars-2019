@@ -1,0 +1,114 @@
+.authContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.instructions {
+  font-family: ArialNarrow;
+  font-weight: bold;
+  color: #252B30;
+}
+
+.instructionsHeader {
+  display: flex;
+  align-items: center;
+}
+
+
+.horizontalRule {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #252B30;
+  content: "";
+}
+
+.categoryTitle h1 {
+  padding: 20px 15px 20px 15px;
+  text-align: center;
+  font-family: ArialNarrow-Bold;
+  font-size: 16px;
+  color: #252B30;
+  letter-spacing: 0;
+  width: auto;
+}
+
+.red {
+  color: #EB4E4E;
+}
+
+.instructions li {
+  letter-spacing: .55px;
+  padding-top: 20px;
+}
+
+.instructions li:first-child {
+  padding-top: 0;
+}
+
+.form {
+  background-color: #F8F5F5;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 350px;
+}
+
+.form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.inputContainer {
+  border-bottom: 1px solid #D8D8D8;
+  display: flex;
+  align-items: center;
+  max-width: 235px;
+  width: 90%;
+  /* padding: 10px; */
+}
+
+.formInput {
+  background-color: #F8F5F5;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  flex-grow: 1;
+  margin-left: 15px;
+  font-size: 12px;
+}
+
+.formInput:focus {
+  outline: none;
+}
+
+.formInput::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #CBCBCB;
+}
+
+.form input[type=submit] {
+  background-color: #C93535;
+  padding: 10px 15px;
+  width: 110px;
+  font-family: ArialNarrow-Bold;
+  color: #ffffff;
+  font-size: 14px;
+  border-radius: 5px;
+  margin-top: 25px;
+  cursor: pointer;
+}
+
+.changeAuth {
+  font-size: 12px;
+  padding: 10px;
+  cursor: pointer;
+  text-decoration: underline;
+  display: inline-block;
+  text-align: center;
+  width: 123px;
+  margin-top: 15px;
+}
