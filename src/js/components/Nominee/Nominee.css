@@ -108,4 +108,8 @@ p.nomineeFilm {
     order: 0;
     box-sizing: content-box;
   }
+
+  p.nomineeFilm {
+    font-size: 12px;
+  }
 }
