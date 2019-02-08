@@ -44,7 +44,7 @@ const nominee = (props) => {
   return(
     <div className={styles.nominee} onClick={(event)=> props.clicked(props.category, props.name, event)}>
       <div className={borderClasses.join(' ')}></div>
-        <img className={styles.nomineeImage} src={buildPath(props.name)} alt={props.name}/>
+        <img className={styles.nomineeImage} src={props.category !== "Original Song" ? buildPath(props.name) : buildPath(props.film)} alt={props.name}/>
         <div className={styles.nomineeTextContainer}>
           <div className={styles.nomineeText}>
             <div>

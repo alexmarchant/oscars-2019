@@ -5,7 +5,7 @@ import Category from '../../components/Category/Category';
 import BallotFooter from '../../components/BallotFooter/BallotFooter'
 import nomineesData from '../../../data/nominees';
 import { connect } from 'react-redux';
-import { usersActions, ballotActions } from '../../_store/_actions';
+import { usersActions, ballotActions, authActions } from '../../_store/_actions';
 
 import styles from './Ballot.css'
 
@@ -35,6 +35,10 @@ class Ballot extends Component {
 
   _onFetchUserPicks = () => {
     this.props.onFetchUserPicks()
+  }
+
+  _paymentHandler = (event) => {
+    this.props.onUpdatePayment(event.target.checked)
   }
 
   renderCategories = () => {
@@ -71,7 +75,7 @@ class Ballot extends Component {
     return (
       <div className={styles.Ballot}>
         {this.renderCategories()}
-        <BallotFooter userSelections={this.props.userSelections}/>
+        <BallotFooter userSelections={this.props.userSelections} paymentHandler={this._paymentHandler}/>
       </div>
     )
   }
@@ -90,6 +94,7 @@ const mapDispatchToProps = dispatch => {
   return {
     onMakeSelection: (category, selection, userSelections)=> dispatch(ballotActions.makeSelection(category, selection, userSelections)),
     onFetchUserPicks: ()=> dispatch(ballotActions.fetchUserPicks()),
+    onUpdatePayment: (checked)=> dispatch(authActions.updatePayment(checked))
   }
 }
 

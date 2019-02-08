@@ -45,6 +45,16 @@ export const authentication = (state = initialState, action ) => {
       user: null
     };
 
+    case authConstants.UPDATE_PAYMENT:
+
+    return {
+      ...state,
+      user: {
+        ...state.user,
+        paid: action.checked
+      }
+    };
+
     default:
       return state;
   }

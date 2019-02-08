@@ -5,7 +5,8 @@ import { authConstants } from '../_constants'
 export const authActions = {
   initAuth,
   logout,
-  isAuthenticated
+  isAuthenticated,
+  updatePayment
 }
 
 function initAuth(authData) {
@@ -66,5 +67,12 @@ function isAuthenticated() {
   return {
     type: authConstants.IS_AUTHENTICATED,
     user: user
+  }
+}
+
+function updatePayment(checked){
+  return {
+    type: authConstants.UPDATE_PAYMENT,
+    checked: checked
   }
 }
