@@ -16,9 +16,9 @@ function initAuth(authData) {
     let url = ''
 
     if (authData.isSignUp) {
-      url = 'http://api.oscars.alexmarchant.com/users'
+      url = 'https://api.oscars.alexmarchant.com/users'
     } else {
-      url = 'http://api.oscars.alexmarchant.com/tokens'
+      url = 'https://api.oscars.alexmarchant.com/tokens'
     }
 
     let authToken
@@ -29,7 +29,7 @@ function initAuth(authData) {
       authToken = token
       return axios({
         method: 'get',
-        url: 'http://api.oscars.alexmarchant.com/users/current-user',
+        url: 'https://api.oscars.alexmarchant.com/users/current-user',
         headers: {'Authorization': `Bearer ${token}`}
         })
       })

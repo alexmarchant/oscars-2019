@@ -29,7 +29,7 @@ const highlightSelection = (category) => {
 const saveSelection = (category, selection, userSelections) => {
   userSelections[category] = selection
 
-  let url = 'http://api.oscars.alexmarchant.com/users/current-user/picks'
+  let url = 'https://api.oscars.alexmarchant.com/users/current-user/picks'
   let token = localStorage.token
 
   return dispatch => {
@@ -81,7 +81,7 @@ function fetchUserPicks () {
   return (dispatch, getState) => {
     dispatch(fetchUserPicksStart())
 
-    let fetchUrl = 'http://api.oscars.alexmarchant.com/users/current-user/picks';
+    let fetchUrl = 'https://api.oscars.alexmarchant.com/users/current-user/picks';
 
     axios(fetchUrl, {
       method: 'get',
