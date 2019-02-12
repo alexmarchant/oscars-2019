@@ -27,7 +27,7 @@ class App extends Component {
 
   componentDidMount() {
     const host = 'api.oscars.alexmarchant.com'
-    const conn = new WebSocket("ws://" + host + "/ws/winners");
+    const conn = new WebSocket("wss://" + host + "/ws/winners");
 
     conn.onmessage = (event) => {
       const message = JSON.parse(event.data);
