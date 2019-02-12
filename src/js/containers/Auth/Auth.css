@@ -26,7 +26,7 @@
 .categoryTitle h1 {
   padding: 20px 15px 20px 15px;
   text-align: center;
-  font-family: ArialNarrow-Bold;
+  font-family: ArialNarrow-Bold, Helvetica, sans-serif;
   font-size: 16px;
   color: #252B30;
   letter-spacing: 0;
@@ -94,7 +94,7 @@
   background-color: #C93535;
   padding: 10px 15px;
   width: 110px;
-  font-family: ArialNarrow-Bold;
+  font-family: ArialNarrow-Bold, Helvetica, sans-serif;
   color: #ffffff;
   font-size: 14px;
   border-radius: 5px;

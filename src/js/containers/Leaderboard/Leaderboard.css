@@ -4,7 +4,7 @@ table {
 }
 
 th {
-  font-family: ArialNarrow;
+  font-family: ArialNarrow, Helvetica, sans-serif;
   color: #b82724;
   padding: 10px;
 }
