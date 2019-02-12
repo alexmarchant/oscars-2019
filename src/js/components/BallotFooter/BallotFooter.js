@@ -16,6 +16,14 @@ const ballotFooter = (props) => {
   let incompleteIcon = <FontAwesomeIcon className={styles.footerIcon} icon="times-circle" color="#C93535" size="2x" />
   let completeIcon = <FontAwesomeIcon className={styles.footerIcon} icon="check-circle" color="#FFFFFF" size="2x" />
 
+  let nextSteps = 'NEXT VENMO ALEX MARCHANT $5'
+  let venmoHandle = '@AMARCHANT'
+
+  if (props.user && props.user.paid) {
+    nextSteps = 'YOU\'RE ALL SET! LET US KNOW IF YOU HAVE ANY QUESTIONS.'
+    venmoHandle = null
+  }
+
   let complete = (
     <Aux>
       <div className = {styles.complete}>
@@ -26,11 +34,11 @@ const ballotFooter = (props) => {
         <div className={styles.paymentLeft}>
           <img className={styles.footerIcon} src='../../../images/venmo-icon.svg' alt='venmo-logo' />
           <div className={styles.paymentRight}>
-            <p className={styles.footerText}>NEXT VENMO ALEX MARCHANT $5</p>
-            <div className={styles.venmoHandle}>@AMARCHANT</div>
+            <p className={styles.footerText}>{nextSteps}</p>
+            <div className={styles.venmoHandle}>{venmoHandle}</div>
           </div>
         </div>
-        <input onChange={props.paymentHandler} type="checkbox" />
+        <input onChange={props.paymentHandler} type="checkbox" checked={props.user && props.user.paid} />
       </div>
     </Aux>
 

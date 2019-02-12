@@ -1,6 +1,7 @@
 import { authConstants } from '../_constants';
 import nomineesData from '../../../data/nominees'
 
+
 const initialState = {
   user: null,
   error: null,
@@ -45,15 +46,25 @@ export const authentication = (state = initialState, action ) => {
       user: null
     };
 
-    case authConstants.UPDATE_PAYMENT:
+    case authConstants.UPDATE_PAYMENT_START:
+    return {
+      ...state,
+    };
 
+    case authConstants.UPDATE_PAYMENT_SUCCESS:
     return {
       ...state,
       user: {
         ...state.user,
-        paid: action.checked
+        paid: action.paid
       }
     };
+
+    case authConstants.UPDATE_PAYMENT_FAIL:
+    return {
+      ...state,
+      error: action.error
+    }
 
     default:
       return state;

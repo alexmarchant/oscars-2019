@@ -1,15 +1,16 @@
 import axios from 'axios'
-import { usersConstants } from '../_constants'
+import { usersConstants, authConstants } from '../_constants'
+
 
 export const usersActions = {
-  fetchAllUsers
+  fetchAllUsers,
 }
 
 function fetchAllUsers() {
 
   return dispatch => {
     dispatch(getUsersStart())
-    const url = 'http://api.oscars.alexmarchant.com/users';
+    const url = 'https://api.oscars.alexmarchant.com/users';
     axios.get(url)
     .then(
       res => {

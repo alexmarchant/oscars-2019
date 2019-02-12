@@ -6,6 +6,7 @@
   font-size: 12px;
   margin-top: 25px;
   max-width: 300px;
+  padding-bottom: 1000px;
 }
 
 .complete {
@@ -16,11 +17,6 @@
 .incomplete {
   display: flex;
   align-items: center;
-}
-
-.footerText {
-  /* width: 200px; */
-  /* background-color: green; */
 }
 
 .footerIcon {
