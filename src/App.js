@@ -42,16 +42,6 @@ class App extends Component {
 
   render() {
 
-    let afterLoad = '...Loading'
-
-    if (this.props) {
-      afterLoad = (
-        <Aux>
-          afterLoad = '...this is crazy'
-        </Aux>
-      )
-    }
-
     return (
       <Layout>
         <Header user={this.props.user}/>
@@ -59,8 +49,6 @@ class App extends Component {
         <Route path="/leaderboard" component={Leaderboard}/>
         <PrivateRoute exact path="/admin" user={this.props.user} component={Admin} />
         <Route path="/" exact component={Ballot} />
-
-        {afterLoad}
       </Layout>
     )
   }

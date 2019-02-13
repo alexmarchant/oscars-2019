@@ -4,7 +4,6 @@ import Aux from '../hoc/Aux'
 import styles from './Header.css'
 
 const header = (props) => {
-  console.log(props)
 
   return (
     <Aux>
