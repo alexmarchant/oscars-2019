@@ -4,7 +4,7 @@ import Aux from '../hoc/Aux'
 import styles from './Header.css'
 
 const header = () => {
-  return(
+  return (
     <Aux>
       <ul>
         <li><Link to="/">Ballot</Link></li>
