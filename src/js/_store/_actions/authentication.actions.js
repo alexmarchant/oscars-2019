@@ -37,7 +37,6 @@ function initAuth(authData) {
       })
     .then( res => {
       const user = res.data
-      debugger
       user.token = authToken
       localStorage.setItem('user', JSON.stringify(user))
       dispatch(authSuccess(user))

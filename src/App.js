@@ -54,7 +54,7 @@ class App extends Component {
 
     return (
       <Layout>
-        <Header />
+        <Header user={this.props.user}/>
         <Auth />
         <Route path="/leaderboard" component={Leaderboard}/>
         <PrivateRoute exact path="/admin" user={this.props.user} component={Admin} />

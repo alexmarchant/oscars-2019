@@ -22,7 +22,7 @@ ul {
   display: flex;
   list-style-type: none;
   width: 100%;
-  justify-content: space-around;
+  justify-content: flex-end;
   margin: 0;
   padding: 10px;
 }
@@ -32,6 +32,7 @@ ul li a {
   color: #ffffff;
   font-family: ArialNarrow-Bold, Helvetica, sans-serif;
   font-size: 16px;
+  margin-right: 25px;
 }
 
 ul li a:hover {
