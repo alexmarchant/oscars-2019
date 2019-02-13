@@ -31,6 +31,7 @@ ul li a {
   text-decoration: none;
   color: #ffffff;
   font-family: ArialNarrow-Bold, Helvetica, sans-serif;
+  font-weight: bold;
   font-size: 16px;
   margin-right: 25px;
 }
