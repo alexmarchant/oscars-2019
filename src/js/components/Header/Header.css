@@ -61,6 +61,6 @@ ul li a:hover {
 
 @media (min-width: 900px) {
   .headerContent {
-    max-width: 100%;
+    max-width: 1440px;
   }
 }
