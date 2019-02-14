@@ -11,6 +11,7 @@ import { PrivateRoute } from './js/components/PrivateRoute/PrivateRoute'
 import { Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import {adminActions} from './js/_store/_actions';
+import Alert from './js/components/UI/Alert/Alert'
 
 //
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -56,7 +57,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.authentication.user
+    user: state.authentication.user,
+    error: state.authentication.error
   }
 }
 
