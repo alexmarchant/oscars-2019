@@ -6,7 +6,6 @@ const alert = (props) => {
   let classes = [styles.alert]
   if (props.error) {
     error = props.error
-    console.log('there is an error');
     classes.push(styles.show)
   }
 
