@@ -1,21 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Aux from '../hoc/Aux'
+import Slider from '../../containers/Slider/Slider'
 import styles from './Header.css'
 
 const header = (props) => {
 
   return (
-    <Aux>
-      <ul>
-        <li><Link to="/">Ballot</Link></li>
-        <li><Link to="/leaderboard">Leaderboard</Link></li>
-        { props.user && props.user.admin ? <li><Link to="/admin">Admin</Link></li> : null }
-      </ul>
-      <div className={styles.Header}>
-        <h1>Oscar Ballot 2019</h1>
+    <div className={styles.header}>
+      <div className={styles.headerContent}>
+        <ul className={styles.headerUL}>
+          <li><Link to="/">Ballot</Link></li>
+          <li><Link to="/leaderboard">Leaderboard</Link></li>
+          { props.user && props.user.admin ? <li><Link to="/admin">Admin</Link></li> : null }
+        </ul>
+        <h1 className={styles.appTitle}>Oscar Ballot 2019</h1>
       </div>
-    </Aux>
+      <Slider />
+    </div>
   )
 }
 

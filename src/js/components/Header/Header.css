@@ -1,12 +1,28 @@
-.Header {
-  background: url('/images/mobile-header.jpg');
-  background-size:cover;
-  min-height: 254px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.header {
 }
 
+.headerContent {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 500px;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: baseline;
+  z-index: 499;
+}
+
+.appTitle {
+  text-align: left;
+  width: 100%;
+  max-width: 390px;
+  padding: 10px;
+}
 
 h1 {
   font-family: Arial-Black, Helvetica, sans-serif;
@@ -18,13 +34,15 @@ h1 {
   width: 160px;
 }
 
-ul {
+.headerUL {
   display: flex;
   list-style-type: none;
   width: 100%;
   justify-content: flex-end;
+  align-items: center;
   margin: 0;
   padding: 10px;
+  padding-bottom: 0;
 }
 
 ul li a {
@@ -33,9 +51,16 @@ ul li a {
   font-family: ArialNarrow-Bold, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 16px;
-  margin-right: 25px;
+  margin-left: 10px;
 }
 
 ul li a:hover {
   text-decoration: underline;
+}
+
+
+@media (min-width: 900px) {
+  .headerContent {
+    max-width: 100%;
+  }
 }

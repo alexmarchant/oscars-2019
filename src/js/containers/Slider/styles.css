@@ -1,0 +1,19 @@
+.slider {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  height: 50vh;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.slider .sliderWrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.slider .sliderWrapper .slide {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
