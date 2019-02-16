@@ -14,7 +14,7 @@ const header = (props) => {
           <li><Link to="/leaderboard">Leaderboard</Link></li>
           { props.user && props.user.admin ? <li><Link to="/admin">Admin</Link></li> : null }
         </ul>
-        <h1 className={styles.appTitle}>Oscar Ballot 2019</h1>
+        <h1 className={styles.appTitle}>OSCAR BALLOT 2019</h1>
       </div>
       <Slider />
     </div>

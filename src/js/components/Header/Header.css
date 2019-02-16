@@ -20,8 +20,12 @@
 .appTitle {
   text-align: left;
   width: 100%;
-  max-width: 390px;
-  padding: 10px;
+  max-width: 220px;
+  padding: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 35px;
+  letter-spacing: 7px;
 }
 
 h1 {
@@ -48,8 +52,8 @@ h1 {
 ul li a {
   text-decoration: none;
   color: #ffffff;
-  font-family: ArialNarrow-Bold, Helvetica, sans-serif;
-  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
   font-size: 16px;
   margin-left: 10px;
 }
@@ -62,5 +66,15 @@ ul li a:hover {
 @media (min-width: 900px) {
   .headerContent {
     max-width: 1440px;
+  }
+
+  .appTitle {
+    max-width: 220px;
+    font-size: 70px;
+    letter-spacing: 9px;
+  }
+
+  ul li a {
+    font-size: 18px;
   }
 }
