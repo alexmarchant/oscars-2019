@@ -20,7 +20,10 @@ export class Slider extends Component {
       'roma',
       'into-the-spiderverse',
       'black-panther',
-      'blackkklansman'
+      'blackkklansman',
+      'the-favourite',
+      'vice',
+      'isle-of-dogs'
     ]
   }
 
