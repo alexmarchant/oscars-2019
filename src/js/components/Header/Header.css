@@ -49,6 +49,16 @@ h1 {
   padding-bottom: 0;
 }
 
+.dueDate {
+  background-color: #b82724;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  padding: 15px;
+  font-size: 10px;
+}
+
 ul li a {
   text-decoration: none;
   color: #ffffff;
@@ -83,5 +93,9 @@ ul li a:hover {
 
   .headerUL {
     padding: 20px;
+  }
+
+  .dueDate {
+    font-size: 16px;
   }
 }

@@ -17,6 +17,7 @@ const header = (props) => {
         <h1 className={styles.appTitle}>OSCAR BALLOT 2019</h1>
       </div>
       <Slider />
+      <div className={styles.dueDate}>ALL ENTRIES ARE DUE SUN, FEB 24 • 7:00 PM EST</div>
     </div>
   )
 }
