@@ -35,6 +35,27 @@ class Leaderboard extends Component {
 
   render() {
 
+    console.log(this.props);
+
+    function totalPlayers(usersList){
+      if (usersList) {
+        return usersList.length
+      }
+      return 'Loading...'
+    }
+
+    function totalPot(usersList){
+      let total = 0
+      if (usersList) {
+        for (let i = 0; i < usersList.length; i++) {
+          if (usersList[i].paid) {
+            total += 5
+          }
+        }
+      }
+      return total
+    }
+
     const winners = this.props.winners
 
     this.props.usersList.forEach((user)=> {
@@ -73,11 +94,19 @@ class Leaderboard extends Component {
          </tr>
 
         </thead>
-          <tbody>
-            {allUsers}
-          </tbody>
-        </table>
-      </div>
+        <tbody>
+          {allUsers}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Total Players: {totalPlayers(this.props.usersList)}</td>
+            <td></td>
+            <td>Total Pot: ${totalPot(this.props.usersList)}</td>
+            <td className={styles.desktopOnly}></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
     )
   }
 }

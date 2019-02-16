@@ -16,13 +16,14 @@ import Alert from './js/components/UI/Alert/Alert'
 //
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheckCircle, faTimesCircle, faEnvelope, faUnlockAlt} from '@fortawesome/free-solid-svg-icons'
+import { faCheckCircle, faTimesCircle, faEnvelope, faUnlockAlt, faCheckSquare, faDollarSign} from '@fortawesome/free-solid-svg-icons'
 
 library.add(faCheckCircle)
 library.add(faTimesCircle)
 library.add(faEnvelope)
 library.add(faUnlockAlt)
-///
+library.add(faCheckSquare)
+library.add(faDollarSign)
 
 
 class App extends Component {
