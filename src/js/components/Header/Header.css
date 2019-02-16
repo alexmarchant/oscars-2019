@@ -66,6 +66,7 @@ ul li a:hover {
 @media (min-width: 900px) {
   .headerContent {
     max-width: 1440px;
+    height: 60vh;
   }
 
   .appTitle {
@@ -76,5 +77,6 @@ ul li a:hover {
 
   ul li a {
     font-size: 18px;
+    margin-left: 25px;
   }
 }
