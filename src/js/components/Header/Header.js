@@ -10,9 +10,9 @@ const header = (props) => {
     <div className={styles.header}>
       <div className={styles.headerContent}>
         <ul className={styles.headerUL}>
-          <li><Link to="/">Ballot</Link></li>
-          <li><Link to="/leaderboard">Leaderboard</Link></li>
-          { props.user && props.user.admin ? <li><Link to="/admin">Admin</Link></li> : null }
+          <li><Link to="/">BALLOT</Link></li>
+          <li><Link to="/leaderboard">LEADERBOARD</Link></li>
+          { props.user && props.user.admin ? <li><Link to="/admin">ADMIN</Link></li> : null }
         </ul>
         <h1 className={styles.appTitle}>OSCAR BALLOT 2019</h1>
       </div>

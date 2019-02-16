@@ -73,10 +73,15 @@ ul li a:hover {
     max-width: 220px;
     font-size: 70px;
     letter-spacing: 9px;
+    padding: 110px;
   }
 
   ul li a {
     font-size: 18px;
     margin-left: 25px;
+  }
+
+  .headerUL {
+    padding: 20px;
   }
 }

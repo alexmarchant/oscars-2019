@@ -92,7 +92,6 @@ class Leaderboard extends Component {
            <th className={styles.desktopOnly}>CORRECT</th>
            <th>SCORE</th>
          </tr>
-
         </thead>
         <tbody>
           {allUsers}
