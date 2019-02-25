@@ -30,7 +30,8 @@ class Ballot extends Component {
   }
 
   _onMakeSelection = (category, selection) => {
-    this.props.onMakeSelection(category, selection, this.props.userSelections)
+    console.log('not gonna be able to do it');
+    // this.props.onMakeSelection(category, selection, this.props.userSelections)
   }
 
   _onFetchUserPicks = () => {
