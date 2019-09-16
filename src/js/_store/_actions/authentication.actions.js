@@ -1,5 +1,7 @@
 import axios from 'axios'
 import { authConstants } from '../_constants'
+import { authHeader } from '../../_helpers/authHeader';
+
 
 
 export const authActions = {
@@ -59,20 +61,49 @@ function logout() {
 
 function isAuthenticated() {
 
-  let user = null
+  return dispatch => {
+    let user = null
+    let token
 
-  if (localStorage.user) {
-    user = JSON.parse(localStorage.user)
+    if (localStorage.user) {
+      user = JSON.parse(localStorage.user)
+      token = user.token
+      axios({
+        method: 'get',
+        url: 'https://api.oscars.alexmarchant.com/users/current-user',
+        headers: {'Authorization': `Bearer ${token}`}
+        })
+        .then((res)=> dispatch(isAuthenticatedTrue(res.data)))
+        .catch(err => dispatch(isAuthenticatedFalse(err.response.data.error)))
+    } else {
+      dispatch(isAuthenticatedFalse('error'))
+    }
   }
-  return {
-    type: authConstants.IS_AUTHENTICATED,
-    user: user
-  }
+
+
+  function isAuthenticatedTrue(user) { return { type: authConstants.IS_AUTHENTICATED, user: user}}
+  function isAuthenticatedFalse(error) { return { type: authConstants.IS_NOT_AUTHENTICATED, error: error}}
 }
 
-function updatePayment(checked){
-  return {
-    type: authConstants.UPDATE_PAYMENT,
-    checked: checked
+function updatePayment(paid){
+  console.log('[auth actions update payment checked]', paid);
+
+  let data = { paid: paid }
+
+  return dispatch => {
+    dispatch(updatePaymentStart())
+    const url = 'https://api.oscars.alexmarchant.com/users/current-user'
+    axios(url, {
+      method: 'PATCH',
+      headers: authHeader(),
+      data: data
+    })
+    .then( res => dispatch(updatePaymentSuccess(paid)))
+    .catch( err => dispatch(updatePaymentFail(err.response.data.error)))
   }
+
+  function updatePaymentStart() { return { type: authConstants.UPDATE_PAYMENT_START }}
+  function updatePaymentSuccess(paid) { return { type: authConstants.UPDATE_PAYMENT_SUCCESS, paid: paid }}
+  function updatePaymentFail(error) { return { type: authConstants.UPDATE_PAYMENT_FAIL, error: error} }
+
 }

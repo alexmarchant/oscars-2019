@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './Admin.css'
 import { Link } from 'react-router-dom'
 
 import Category from '../../components/Category/Category';
@@ -22,6 +23,7 @@ class Admin extends Component {
           nominees={nom.nominees}
           clicked={this._onSelectWinner}
           admin={true}
+          winners={this.props.winners}
         />
       ))
     }
@@ -29,7 +31,7 @@ class Admin extends Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.admin}>
           {this.renderCategories()}
       </div>
     )

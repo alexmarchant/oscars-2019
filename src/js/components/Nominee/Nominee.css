@@ -48,14 +48,16 @@ img.nomineeImage {
 }
 
 p.nomineeName {
-  font-family: ArialNarrow-Bold;
+  font-family: ArialNarrow-Bold, Helvetica, sans-serif;
+  font-weight: bold;
   font-size: 13px;
   color: #F73E3E;
   letter-spacing: 0;
 }
 
 p.nomineeFilm {
-  font-family: ArialNarrow-Bold;
+  font-family: ArialNarrow-Bold, Helvetica, sans-serif;
+  font-weight: bold;
   font-size: 10px;
   color: #737373;
   letter-spacing: 0;

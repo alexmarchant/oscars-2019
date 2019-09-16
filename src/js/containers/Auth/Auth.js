@@ -4,6 +4,7 @@ import styles from './Auth.css'
 import {connect} from 'react-redux'
 import { authActions } from '../../_store/_actions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Alert from '../../components/UI/Alert/Alert'
 
 
 class Auth extends Component {
@@ -74,6 +75,7 @@ class Auth extends Component {
 
     return(
         <Modal show={!this.props.user}>
+        <Alert error={this.props.error}/>
           <div className={styles.authContainer}>
           <div className={styles.instructions}>
             <div className={styles.instructionsHeader}>

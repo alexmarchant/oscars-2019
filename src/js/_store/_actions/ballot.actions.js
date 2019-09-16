@@ -59,7 +59,6 @@ const updateSelectionState = (category, selection) => {
 }
 
 function loadUserPicks(nomineesList, userSelections) {
-  console.log('we in here');
 
   nomineesList.forEach((category)=> {
     category.nominees.forEach((nominee)=> {

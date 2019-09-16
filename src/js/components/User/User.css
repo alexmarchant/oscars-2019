@@ -8,11 +8,22 @@ tr {
 }
 
 td {
-  font-family: ArialNarrow;
+  font-family: ArialNarrow, Helvetica, sans-serif;
   color: #777777;
   text-align: center;
   border-top: 1px solid #fff;
   padding: 10px 0;
+  font-size: 12px;
+}
+
+.userEmailColumn {
+  
+  text-align: left;
+}
+
+.userIcon {
+  box-sizing: content-box;
+  padding: 0 5px;
 }
 
 @media (min-width: 900px) {
@@ -20,6 +31,7 @@ td {
   td {
     font-weight: bold;
     padding: 20px;
+    font-size: 16px;
   }
 
 

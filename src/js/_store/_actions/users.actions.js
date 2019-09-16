@@ -1,8 +1,9 @@
 import axios from 'axios'
-import { usersConstants } from '../_constants'
+import { usersConstants, authConstants } from '../_constants'
+
 
 export const usersActions = {
-  fetchAllUsers
+  fetchAllUsers,
 }
 
 function fetchAllUsers() {

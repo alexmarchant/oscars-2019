@@ -5,12 +5,27 @@
   width: 90%;
   box-shadow: 1px 1px 1px black;
   padding: 16px;
-  top: 1%;
+  top: 2vh;
   left: 5%;
   box-sizing: border-box;
   border-top: 13px solid #EB4E4E;
   transition: all 0.3s ease-out;
-  transform: translateY(-100vh);
+  transform: translateY(-110vh);
+}
+
+.hideBackdrop {
+  display: none;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  z-index: 499;
+  opacity: 0.8;
 }
 
 .show {

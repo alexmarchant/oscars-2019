@@ -30,7 +30,8 @@ class Ballot extends Component {
   }
 
   _onMakeSelection = (category, selection) => {
-    this.props.onMakeSelection(category, selection, this.props.userSelections)
+    console.log('not gonna be able to do it');
+    // this.props.onMakeSelection(category, selection, this.props.userSelections)
   }
 
   _onFetchUserPicks = () => {
@@ -38,7 +39,8 @@ class Ballot extends Component {
   }
 
   _paymentHandler = (event) => {
-    this.props.onUpdatePayment(event.target.checked)
+    let paid = this.props.user.paid
+    this.props.onUpdatePayment(!paid)
   }
 
   renderCategories = () => {
@@ -75,7 +77,10 @@ class Ballot extends Component {
     return (
       <div className={styles.Ballot}>
         {this.renderCategories()}
-        <BallotFooter userSelections={this.props.userSelections} paymentHandler={this._paymentHandler}/>
+        <BallotFooter
+          userSelections={this.props.userSelections}
+          paymentHandler={this._paymentHandler}
+          user={this.props.user}/>
       </div>
     )
   }
@@ -94,7 +99,7 @@ const mapDispatchToProps = dispatch => {
   return {
     onMakeSelection: (category, selection, userSelections)=> dispatch(ballotActions.makeSelection(category, selection, userSelections)),
     onFetchUserPicks: ()=> dispatch(ballotActions.fetchUserPicks()),
-    onUpdatePayment: (checked)=> dispatch(authActions.updatePayment(checked))
+    onUpdatePayment: (paid)=> dispatch(authActions.updatePayment(paid))
   }
 }
 

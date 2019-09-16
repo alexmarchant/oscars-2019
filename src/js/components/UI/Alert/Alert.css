@@ -1,0 +1,10 @@
+.alert {
+  z-index: 1500;
+  display: none;
+  color: red;
+  text-align: center;
+}
+
+.show {
+  display: block;
+}

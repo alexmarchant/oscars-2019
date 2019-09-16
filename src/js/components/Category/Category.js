@@ -37,7 +37,7 @@ const category = (props) => {
       <div className={styles.categoryHeader}>
         <div className={styles.horizontalRule}>&#8203;</div>
           <div className={styles.categoryTitle}>
-            <p>{props.title.toUpperCase()}</p>
+            <h1>{props.title.toUpperCase()}</h1>
             <p className={styles.categoryPoints}>{points[props.title]} points</p>
           </div>
         <div className={styles.horizontalRule}>&#8203;</div>

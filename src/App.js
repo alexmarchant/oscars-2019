@@ -6,21 +6,24 @@ import Ballot from './js/containers/Ballot/Ballot';
 import Leaderboard from './js/containers/Leaderboard/Leaderboard';
 import Auth from './js/containers/Auth/Auth';
 import Admin from './js/containers/Admin/Admin';
+import Aux from './js/components/hoc/Aux'
 import { PrivateRoute } from './js/components/PrivateRoute/PrivateRoute'
 import { Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import {adminActions} from './js/_store/_actions';
+import Alert from './js/components/UI/Alert/Alert'
 
 //
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheckCircle, faTimesCircle, faEnvelope, faUnlockAlt} from '@fortawesome/free-solid-svg-icons'
+import { faCheckCircle, faTimesCircle, faEnvelope, faUnlockAlt, faCheckSquare, faDollarSign} from '@fortawesome/free-solid-svg-icons'
 
 library.add(faCheckCircle)
 library.add(faTimesCircle)
 library.add(faEnvelope)
 library.add(faUnlockAlt)
-///
+library.add(faCheckSquare)
+library.add(faDollarSign)
 
 
 class App extends Component {
@@ -40,11 +43,10 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.user);
 
     return (
       <Layout>
-        <Header />
+        <Header user={this.props.user}/>
         <Auth />
         <Route path="/leaderboard" component={Leaderboard}/>
         <PrivateRoute exact path="/admin" user={this.props.user} component={Admin} />
@@ -56,7 +58,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.authentication.user
+    user: state.authentication.user,
+    error: state.authentication.error
   }
 }
 
