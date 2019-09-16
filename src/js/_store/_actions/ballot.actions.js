@@ -29,7 +29,7 @@ const highlightSelection = (category) => {
 const saveSelection = (category, selection, userSelections) => {
   userSelections[category] = selection
 
-  let url = 'https://api.oscars.alexmarchant.com/users/current-user/picks'
+  let url = 'https://oscars-2019-api.herokuapp.com/users/current-user/picks'
   let token = localStorage.token
 
   return dispatch => {
@@ -80,7 +80,7 @@ function fetchUserPicks () {
   return (dispatch, getState) => {
     dispatch(fetchUserPicksStart())
 
-    let fetchUrl = 'https://api.oscars.alexmarchant.com/users/current-user/picks';
+    let fetchUrl = 'https://oscars-2019-api.herokuapp.com/users/current-user/picks';
 
     axios(fetchUrl, {
       method: 'get',

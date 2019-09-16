@@ -22,7 +22,7 @@ function saveWinner (category, winner, winners) {
     data[category] = winner
     console.log(data);
 
-    const url = 'https://api.oscars.alexmarchant.com/winners'
+    const url = 'https://oscars-2019-api.herokuapp.com/winners'
     axios(url, {
       method: 'POST',
       headers: authHeader(),

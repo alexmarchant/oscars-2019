@@ -18,9 +18,9 @@ function initAuth(authData) {
     let url = ''
 
     if (authData.isSignUp) {
-      url = 'https://api.oscars.alexmarchant.com/users'
+      url = 'https://oscars-2019-api.herokuapp.com/users'
     } else {
-      url = 'https://api.oscars.alexmarchant.com/tokens'
+      url = 'https://oscars-2019-api.herokuapp.com/tokens'
     }
 
     let authToken
@@ -31,7 +31,7 @@ function initAuth(authData) {
       authToken = token
       return axios({
         method: 'get',
-        url: 'https://api.oscars.alexmarchant.com/users/current-user',
+        url: 'https://oscars-2019-api.herokuapp.com/users/current-user',
         headers: {'Authorization': `Bearer ${token}`}
         })
       })
@@ -70,7 +70,7 @@ function isAuthenticated() {
       token = user.token
       axios({
         method: 'get',
-        url: 'https://api.oscars.alexmarchant.com/users/current-user',
+        url: 'https://oscars-2019-api.herokuapp.com/users/current-user',
         headers: {'Authorization': `Bearer ${token}`}
         })
         .then((res)=> dispatch(isAuthenticatedTrue(res.data)))
@@ -92,7 +92,7 @@ function updatePayment(paid){
 
   return dispatch => {
     dispatch(updatePaymentStart())
-    const url = 'https://api.oscars.alexmarchant.com/users/current-user'
+    const url = 'https://oscars-2019-api.herokuapp.com/users/current-user'
     axios(url, {
       method: 'PATCH',
       headers: authHeader(),

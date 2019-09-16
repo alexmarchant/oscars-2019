@@ -10,7 +10,7 @@ function fetchAllUsers() {
 
   return dispatch => {
     dispatch(getUsersStart())
-    const url = 'https://api.oscars.alexmarchant.com/users';
+    const url = 'https://oscars-2019-api.herokuapp.com/users';
     axios.get(url)
     .then(
       res => {

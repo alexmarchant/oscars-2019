@@ -29,7 +29,7 @@ library.add(faDollarSign)
 class App extends Component {
 
   componentDidMount() {
-    const host = 'api.oscars.alexmarchant.com'
+    const host = 'oscars-2019-api.herokuapp.com'
     const conn = new WebSocket("wss://" + host + "/ws/winners");
 
     conn.onmessage = (event) => {
