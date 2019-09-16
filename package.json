@@ -5,7 +5,6 @@
     "static-file-server": "node static-file-server/forever.js",
     "build": "webpack --config=config/webpack.production.js",
     "dev": "webpack-dev-server --config=config/webpack.dev.js",
-    "heroku-postbuild": "npm run build",
     "start": "npm run static-file-server"
   },
   "dependencies": {
